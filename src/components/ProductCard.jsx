@@ -1,6 +1,4 @@
-// src/components/ProductCard.jsx
 import React from "react";
-import { ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product, onAddToCart }) => {

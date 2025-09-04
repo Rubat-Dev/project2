@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {/* Search Bar */}
           <div
-            className="relative flex items-center"
+            className="relative flex items-center max-sm:hidden"
             onMouseEnter={() => setSearchOpen(true)}
             onMouseLeave={() => setSearchOpen(false)}
           >
@@ -100,7 +100,7 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed top-0 left-0 bg-white shadow-lg md:hidden px-10 py-5 w-full z-40 transition-transform duration-500 ${mobileMenu ? "translate-y-[100px]" : "-translate-y-full"}`}>
+      <div className={`fixed top-0 left-0 bg-white shadow-lg md:hidden px-10 py-5 w-full z-40 transition-transform duration-500 ${mobileMenu ? "translate-y-[86px]" : "-translate-y-full"}`}>
         <div className="flex flex-col space-y-4">
           {menu.map((item) => (
             <NavLink
@@ -113,6 +113,11 @@ const Navbar = () => {
               {item.name}
             </NavLink>
           ))}
+          {/* Search Bar */}
+          <div className="relative">
+          <input type="text" placeholder="search here" className=" ps-12 w-full p-3 rounded-full border border-blue-600"/>
+          <Search className="w-5 h-5 text-gray-700 cursor-pointer absolute bottom-3 left-5" />
+          </div>
         </div>
       </div>
 
