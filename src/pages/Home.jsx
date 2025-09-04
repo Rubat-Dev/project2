@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PremiumSlider, { premiumImages } from '../components/PremiumSlider';
-import About from '../pages/Products';
+import About from '../pages/About';
 import Products from '../pages/Products';
 import  Contact  from '../pages/Contact';
 import Reviews from "../pages/Reviews"
