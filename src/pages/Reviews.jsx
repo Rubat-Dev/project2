@@ -36,7 +36,7 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section className="bg-gradient-to-r from-sky-50 via-purple-50 to-pink-50 py-16 px-6 lg:px-20">
+    <section className="bg-gradient-to-r from-sky-50 via-purple-50 to-pink-50 py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Title */}
         <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
