@@ -1,15 +1,18 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { Trash2 } from "lucide-react"; // 🗑️ Delete Icon import
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
-
+  const navigate = useNavigate();
   return (
     <div className="w-full h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <div className="bg-white shadow-md px-6 py-4 border-b border-gray-200">
-        <h1 className="text-3xl font-bold text-gray-900">🛒 Your Shopping Cart</h1>
+        <h1 className="text-3xl font-bold text-gray-900">
+          🛒 Your Shopping Cart
+        </h1>
         <p className="text-gray-500">Manage your items and checkout easily</p>
       </div>
 
@@ -51,7 +54,9 @@ const CartPage = () => {
                         className="h-16 w-16 object-cover rounded-lg shadow"
                       />
                     </td>
-                    <td className="p-4 font-medium text-gray-800">{item.name}</td>
+                    <td className="p-4 font-medium text-gray-800">
+                      {item.name}
+                    </td>
                     <td className="p-4 font-semibold text-gray-900">
                       ${item.price}
                     </td>
@@ -78,8 +83,16 @@ const CartPage = () => {
                 ))}
               </tbody>
             </table>
+            
           </div>
         )}
+        {/* 🚪 Exit Button */}
+        <button
+              onClick={() => navigate("/products")}
+              className="mt-10 bg-gray-600 text-white px-8 py-2 text-lg font-semibold rounded-md hover:bg-gray-900 transition"
+            >
+              Exit
+            </button>
       </div>
     </div>
   );

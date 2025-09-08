@@ -1,5 +1,4 @@
-
-import { HashRouter as Router, Routes, Route, } from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -10,15 +9,17 @@ import CartPage from "./components/CartPage";
 import { CartProvider } from "./context/CartContext";
 import ProductDetail from "./components/ProductDetail"; 
 import Reviews from "./pages/Reviews"
-function App() {
+
+function AppContent() {
+  const location = useLocation();
   return (
-    <Router>
       <CartProvider>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:id" element={<ProductDetail />} />
@@ -27,11 +28,18 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
             </Routes>
           </main>
-          <Footer />
+          {location.pathname !== "/cart" && <Footer />}
         </div>
       </CartProvider>
-    </Router>
   );
 }
+function App() {
+  return (
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
+  );
+}
+
 
 export default App;
