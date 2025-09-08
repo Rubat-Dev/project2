@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
@@ -16,6 +17,9 @@ import {
 } from "lucide-react";
 
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  console.log(navigate);
   const { cart } = useCart();
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
